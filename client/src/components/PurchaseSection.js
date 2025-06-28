@@ -1,5 +1,4 @@
-import React from "react";
-import { FaTruckLoading, FaPlusCircle } from "react-icons/fa";
+import { FaTruckLoading, FaPlusCircle, FaSpinner } from "react-icons/fa";
 
 const PurchaseSection = ({
   products,
@@ -8,8 +7,6 @@ const PurchaseSection = ({
   purchaseQuantity,
   onQuantityChange,
   onPurchase,
-  unitPrice,
-  totalPurchase,
   loading,
 }) => {
   return (
@@ -56,7 +53,8 @@ const PurchaseSection = ({
       >
         {loading ? (
           <>
-            <i className="fas fa-spinner fa-spin mr-2"></i> Processing...
+            <FaSpinner className="fas fa-spinner fa-spin mr-2" />
+            Processing...
           </>
         ) : (
           <>

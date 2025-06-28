@@ -1,5 +1,4 @@
-import React from "react";
-import { FaBoxes, FaCartPlus } from "react-icons/fa";
+import { FaBoxes, FaCartPlus, FaBoxOpen } from "react-icons/fa";
 
 const Dashboard = ({ products, onAddToCart }) => {
   return (
@@ -14,7 +13,7 @@ const Dashboard = ({ products, onAddToCart }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {products.length === 0 ? (
           <div className="text-center py-4 text-gray-500">
-            <i className="fas fa-box-open text-3xl mb-2"></i>
+            <FaBoxOpen className="fas fa-box-open text-3xl mb-2" />
             <p>No products available</p>
           </div>
         ) : (
