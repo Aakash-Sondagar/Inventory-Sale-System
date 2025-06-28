@@ -16,10 +16,6 @@ export const purchaseOrder = async (req, res) => {
       res.status(404).json({ error: "Product not found" });
       return;
     }
-    if (product.stock < quantity) {
-      res.status(400).json({ error: "Insufficient stock" });
-      return;
-    }
     product.stock += quantity;
     await product.save();
     res.json({ product, totalCost: product.price * quantity });

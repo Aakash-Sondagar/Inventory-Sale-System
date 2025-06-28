@@ -49,22 +49,6 @@ const PurchaseSection = ({
         />
       </div>
 
-      <div className="bg-blue-50 p-4 rounded-lg mb-6">
-        <h3 className="text-sm font-medium text-blue-800 mb-2">
-          Purchase Summary
-        </h3>
-        <div className="flex justify-between text-sm mb-1">
-          <span className="text-gray-600">Unit Price:</span>
-          <span className="font-medium">${unitPrice.toFixed(2)}</span>
-        </div>
-        <div className="flex justify-between text-sm">
-          <span className="text-gray-600">Total Cost:</span>
-          <span className="font-medium text-blue-600">
-            ${totalPurchase.toFixed(2)}
-          </span>
-        </div>
-      </div>
-
       <button
         onClick={onPurchase}
         disabled={loading}
