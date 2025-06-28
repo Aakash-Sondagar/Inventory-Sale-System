@@ -19,7 +19,7 @@ const Dashboard = ({ products, onAddToCart }) => {
         ) : (
           products.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-indigo-300 transition duration-200 fade-in"
             >
               <div className="flex justify-between items-start mb-2">

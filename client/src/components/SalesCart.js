@@ -29,7 +29,7 @@ const SalesCart = ({
           <div className="space-y-4 mb-6">
             {cart.map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="bg-gray-50 rounded-lg p-4 border border-gray-200 shadow-sm"
               >
                 <div className="flex justify-between items-center mb-2">

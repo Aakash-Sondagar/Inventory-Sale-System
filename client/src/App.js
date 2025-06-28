@@ -69,7 +69,9 @@ function App() {
         show: true,
         type: "success",
         title: "Purchase Successful",
-        message: `Added ${purchaseQuantity} ${res.data.product.name} to inventory for $${res.data.totalCost.toFixed(2)}.`,
+        message: `Added ${purchaseQuantity} ${
+          res.data.product.name
+        } to inventory for $${res.data.totalCost.toFixed(2)}.`,
       });
       fetchProducts();
     } catch (err) {
@@ -84,26 +86,25 @@ function App() {
   };
 
   const handleAddToCart = (product) => {
-    const existing = cart.find((i) => i.id === product.id);
-    if (existing) {
+    if (product.stock <= 0) {
       setModal({
         show: true,
         type: "error",
-        title: "Already in Cart",
-        message: `${product.name} is already in cart.`,
+        title: "Insufficient Stock",
+        message: `Only ${product.stock} ${product.name} in stock.`,
       });
-    } else {
-      const item = {
-        id: product._id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-        markup: 0.2,
-        discount: 0.1,
-        finalPrice: product.price * 1.2 * 0.9 * 1,
-      };
-      setCart([...cart, item]);
+      return;
     }
+    const item = {
+      id: product._id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      markup: 0.2,
+      discount: 0.1,
+      finalPrice: product.price * 1.2 * 0.9 * 1,
+    };
+    setCart([...cart, item]);
   };
 
   const handleRemoveFromCart = (id) => {
@@ -121,7 +122,7 @@ function App() {
       return;
     }
     setLoading(true);
-    console.log("cart", cart)
+
     try {
       const res = await axios.post("http://localhost:5000/api/sale", { cart });
       setModal({
