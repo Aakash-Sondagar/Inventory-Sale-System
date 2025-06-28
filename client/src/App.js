@@ -69,7 +69,7 @@ function App() {
         show: true,
         type: "success",
         title: "Purchase Successful",
-        message: `Added ${purchaseQuantity} ${res.data.product.name} to inventory.`,
+        message: `Added ${purchaseQuantity} ${res.data.product.name} to inventory for $${res.data.totalCost.toFixed(2)}.`,
       });
       fetchProducts();
     } catch (err) {
